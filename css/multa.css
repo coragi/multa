@@ -1,0 +1,20 @@
+.roubo {
+    padding: 6px 12px;
+    white-space: nowrap;
+    font-size: 20px;
+}
+
+.roubo .cabeca {
+    height: 45px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.roubo li { border-bottom: 1px solid black; }
+
+.users {
+    padding: 6px 12px;
+    white-space: nowrap;
+    font-size: 16px;
+}
+
