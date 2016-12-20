@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" ng-app="myApp">
   <head>
+  	<script data-require="angularjs@1.5.8" data-semver="1.5.8" src="js/angular.min.js"></script>
+  	<script src="js/controller.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,12 +14,14 @@
     <link href="css/multa.css" rel="stylesheet">
 
   </head>
-  <body>
-    
+  <body ng-controller="MainController">
+
     <div class="container-fluid">
         <!-- Header -->
         <div class="row">
           <div class="col-md-12 text-center">
+          {{roubo}}
+          {{1+1}}
             <h1>Por favor, não aperte F5 nessa página. Ela atualiza sozinha!</h1>
             <h2>17/12/2016 12:55:19</h2>
             <span>Transações até o momento: 167</span>
@@ -31,212 +35,26 @@
         <div class="row">
           <!-- Lista de Roubos -->
           <div class="col-md-8">
-            <ul class="list-unstyled roubo">
-              <li class="roubo">
+          {{error}}
+            <ul class="list-unstyled roubo" ng-repeat="rb in roubo">
+              <li>{{rb.jogador}} {{rb.posicao}} {{rb.overall}} roubado pelo {{rb.roubado}}. {{rb.ladrao}} é o novo dono.</li>
+
+
+            <!--  <li class="roubo">
                 <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
+                <span>L. Messi</span>
+                (<span>PTD</span>: <span>94</span>)
+                roubado do <span>Coragi</span>
                 por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
-              <li class="roubo">
-                <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_7511.png" alt="L. Messi" class="img-circle cabeca">
-                <span>L. Messi</span> 
-                (<span>PTD</span>: <span>94</span>) 
-                roubado do <span>Coragi</span> 
-                por <span>90.000</span>.
-                <span>TiagoScotch</span> é o novo dono com passe de <span>100.000</span>.
-              </li>
+                <span>{{teste}}</span> é o novo dono com passe de <span>100.000</span>.
+              </li> -->
+
             </ul>
           </div>
 
           <!-- Lista de Users -->
           <div class="col-md-4">
             <ul class="list-unstyled users">
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
               <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
             </ul>
           </div>
