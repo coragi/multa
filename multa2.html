@@ -3,6 +3,7 @@
   <head>
   	<script data-require="angularjs@1.5.8" data-semver="1.5.8" src="js/angular.min.js"></script>
   	<script src="js/controller.js"></script>
+  	<script src="js/services.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,9 +35,11 @@
         <div class="row">
           <!-- Lista de Roubos -->
           <div class="col-md-8">
+
           {{error}}
             <ul class="list-unstyled roubo" ng-repeat="rb in roubo">
-              <li>{{rb.jogador}} {{rb.posicao}} {{rb.overall}} roubado pelo {{rb.roubado}}. {{rb.ladrao}} é o novo dono.</li>
+              <li> <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_{{rb.pes_id}}.png" alt={{rb.jogador}} class="img-circle cabeca">
+           {{rb.jogador}} {{rb.posicao}} {{rb.overall}} roubado pelo {{rb.roubado}}. {{rb.ladrao}} é o novo dono.</li>
 
 
             <!--  <li class="roubo">
