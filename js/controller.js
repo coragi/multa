@@ -1,32 +1,18 @@
 (function() {
+  var app = angular.module("myApp", []);
+  var MainController = function($scope, $interval, $http, multa) {
+    var num=0;
+    var recebeRb = function() {
+	num++;
+      $http.get("http://www.portallbfv.com.br/ligaps3/portal/listaMulta.php?num=" + num)
+        .then(function(resposta) {
+          $scope.roubo = resposta.data;
+        });
+    };
+	$scope.teste=multa.teste;
+    $interval(recebeRb, 2000, 5);
 
-  angular.module('myApp', [])
+  };
 
-  .controller('MainController', function($scope, $interval, $http, multa) {
-
-
-	  var recebeRb = function() {
-
-				multa.buscaRb(2).then(function(data) {
-					$scope.roubo = data;
-				  }, function(seErroUser) {
-					$scope.error = "OPS!!! deu ruim!";
-			});
-			};
-
-	  $interval(recebeRb,2000,2);
-
-/*		var recebeRb = function(){
-			return multa.buscaRb(23);
-		};
-	//	var recebeRb = multa.buscaRb(2);
-
-		$scope.roubo = $interval(recebeRb,2000,2);
-		console.log(recebeRb);
-	//	console.log($scope.recebeRb);
-
-
-*/
-
-  })
+  app.controller("MainController", MainController);
 }());
