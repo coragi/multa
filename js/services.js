@@ -1,3 +1,19 @@
+'use strict';
+
+multaApp.factory('multaService', function($http) {
+  return {
+      listaMulta: function(num) {
+          var promise = $http.get("http://www.portallbfv.com.br/ligaps3/portal/listaMulta.php?num=" + num)
+              .then(function(response) {
+                  console.log(response);
+                  return response.data;
+              });
+          return promise;
+      }
+  }
+});
+
+/*
 (function() {
 
   var multa = function($http) {
@@ -22,3 +38,4 @@
   var module = angular.module("myApp");
   module.factory("multa", multa);
 }());
+*/

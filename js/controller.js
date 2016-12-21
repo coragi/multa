@@ -1,4 +1,16 @@
-(function() {
+'use strict';
+
+multaApp.controller('MainController',
+  function MainController ($scope, multaService) {
+    multaService.listaMulta(3)
+      .then(function (roubo) {
+        $scope.roubo = roubo;
+      });
+});
+
+
+/*
+(function () {
   var app = angular.module("myApp", []);
   var MainController = function($scope, $interval, $http, multa) {
     var num=0;
@@ -16,3 +28,5 @@
 
   app.controller("MainController", MainController);
 }());
+
+*/

@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-br" ng-app="myApp">
+<html lang="pt-br" ng-app="multaApp">
   <head>
-  	<script data-require="angularjs@1.5.8" data-semver="1.5.8" src="js/angular.min.js"></script>
-  	<script src="js/controller.js"></script>
-   	<script src="js/services.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,7 +36,7 @@
           {{error}}
           {{teste}}
             <ul class="list-unstyled roubo" ng-repeat="rb in roubo">
-              <li> <img src="http://www.pesmaster.com/pes-2017/graphics/players/player_{{rb.pes_id}}.png" alt={{rb.jogador}} class="img-circle cabeca">
+              <li> <img ng-src="http://www.pesmaster.com/pes-2017/graphics/players/player_{{rb.pes_id}}.png" alt={{rb.jogador}} class="img-circle cabeca">
        {{rb.pes_id}}    {{rb.jogador}} {{rb.posicao}} {{rb.overall}} roubado pelo {{rb.roubado}}. {{rb.ladrao}} é o novo dono.</li>
 
 
@@ -75,5 +72,9 @@
     <script src="js/jquery-1.12.4.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+  	<script src="js/angular.min.js"></script>
+  	<script src="js/app.js"></script>
+  	<script src="js/controller.js"></script>
+   	<script src="js/services.js"></script>
   </body>
 </html>
