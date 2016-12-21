@@ -9,11 +9,31 @@ multaApp.factory('multaService', function($http) {
                   return response.data;
               });
           return promise;
+      },
+       numeroRoubo: function() {
+	            var promise = $http.get("http://www.portallbfv.com.br/ligaps3/portal/verificaRoubo.php")
+	                .then(function(response) {
+	                    console.log(response);
+	                    return response.data.cnt;
+	                });
+	            return promise;
+      }
+  }
+});
+/*
+multaApp.factory('verificaService', function($http) {
+  return {
+      numeroRoubo: function() {
+          var promise = $http.get("http://www.portallbfv.com.br/ligaps3/portal/verificaRoubo.php")
+              .then(function(response) {
+                  console.log(response);
+                  return response.data;
+              });
+          return promise;
       }
   }
 });
 
-/*
 (function() {
 
   var multa = function($http) {

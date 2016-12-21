@@ -1,11 +1,28 @@
 'use strict';
 
 multaApp.controller('MainController',
-  function MainController ($scope, multaService) {
-    multaService.listaMulta(3)
-      .then(function (roubo) {
-        $scope.roubo = roubo;
-      });
+  function MainController ($scope, multaService, $interval) {
+	$scope.atual=0;
+
+	var recebeRb = function() {
+					multaService.numeroRoubo()
+					.then(function(num) {
+						console.log("NUM ->"+num);
+						$scope.num = num;
+						if($scope.atual != $scope.num) {
+							multaService.listaMulta($scope.num)
+								.then(function (roubo) {
+									console.log("ROUBO ->"+roubo);
+									$scope.roubo = roubo;
+									$vou subiscope.atual = $scope.num;
+								});
+						}
+					});
+				};
+
+   $interval(recebeRb, 5000);
+
+
 });
 
 
