@@ -1,49 +1,47 @@
 'use strict';
 
 multaApp.controller('MainController',
-  function MainController ($scope, multaService, $interval) {
-	$scope.atual=0;
+	function MainController($scope, multaService, $interval) {
+		//numero de roubos atuais
+		$scope.atual = 0;
+		//$scope.roubo.length = 0; //gambiarra monstra
 
-	var recebeRb = function() {
-					multaService.numeroRoubo()
-					.then(function(num) {
-						console.log("NUM ->"+num);
-						$scope.num = num;
-						if($scope.atual != $scope.num) {
-							multaService.listaMulta($scope.num)
-								.then(function (roubo) {
-									console.log("ROUBO ->"+roubo);
+		var recebeRb = function () {
+			//numeroRoubo atualiza o numero de roubos atuais
+			multaService.numeroRoubo()
+				.then(function (num) {
+					
+					// se num for diferente do atual, atualiza a lista de roubos
+					if ($scope.atual != num) {
+						// busca os novos roubos = num - $scope.atual
+						multaService.listaMulta(num - $scope.atual)
+							.then(function (roubo) {
+								//console.log('roubo' + num + ' ' + $scope.atual);
+								
+								//if ($scope.roubo == null) {
 									$scope.roubo = roubo;
-									$vou subiscope.atual = $scope.num;
-								});
-						}
-					});
+								//} else {
+									//var arr = $scope.roubo;
+									//$scope.roubo = arr.concat(arr, roubo);
+								//}
+																
+								//metodo concat pode concatenar N arrays em um, criando um novo array			
+								//a = a.concat(b, c);
+								//metodo push pode ser usado junto com o apply
+								//o apply pega um array de parametro e explode 
+								//assim o push (q zera o array) vai adicionar ao "a" os elementos de "a" e "b"
+								//a.push.apply(a, b);
+								//$scope.roubo.push.apply($scope.roubo, roubo);
+								//console.log($scope.roubo);
+							});
+					}
+					//atualiza o numero de roubos atual
+					$scope.atual = num;
+
+				});
 				};
 
-   $interval(recebeRb, 5000);
+		//executa a funcao recebeRb a cada 5 segundos
+		$interval(recebeRb, 5000);
 
-
-});
-
-
-/*
-(function () {
-  var app = angular.module("myApp", []);
-  var MainController = function($scope, $interval, $http, multa) {
-    var num=0;
-    var recebeRb = function() {
-	num++;
-      $http.get("http://www.portallbfv.com.br/ligaps3/portal/listaMulta.php?num=" + num)
-        .then(function(resposta) {
-          $scope.roubo = resposta.data;
-        });
-    };
-	$scope.teste=multa.teste;
-    $interval(recebeRb, 2000, 5);
-
-  };
-
-  app.controller("MainController", MainController);
-}());
-
-*/
+	});
