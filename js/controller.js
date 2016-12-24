@@ -5,7 +5,6 @@ multaApp.controller('MainController',
 		//numero de roubos atuais
 		$scope.atual = 0;
 		$scope.roubo = [];
-		//$scope.roubo.length = 0; //gambiarra monstra
 
 		var recebeRb = function () {
 			//numeroRoubo atualiza o numero de roubos atuais
