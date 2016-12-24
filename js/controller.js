@@ -1,6 +1,7 @@
-'use strict';
+"use strict";
 
-multaApp.controller('MainController',
+angular.module("multaApp", ["ui.bootstrap"])
+	.controller("MainController",
 	function MainController($scope, multaService, $interval) {
 		//numero de roubos atuais
 		$scope.atual = 0;

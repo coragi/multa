@@ -1,0 +1,28 @@
+{
+  "name": "multa",
+  "version": "1.0.0",
+  "description": "Multa da LBFV",
+  "main": "multa2.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coragi/multa.git"
+  },
+  "keywords": [
+    "multa",
+    "lbfv"
+  ],
+  "author": "Danilo Silveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coragi/multa/issues"
+  },
+  "homepage": "https://github.com/coragi/multa#readme",
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-config-angular": "^0.5.0",
+    "eslint-plugin-angular": "^1.5.1"
+  }
+}

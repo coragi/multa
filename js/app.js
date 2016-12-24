@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-var multaApp = angular.module('multaApp', []);
+angular.module("multaApp", ["ui.bootstrap"])
 
-multaApp.config(['$qProvider', function ($qProvider) {
-    $qProvider.errorOnUnhandledRejections(false);
-}]);
+.config(function ($qProvider) {
+	$qProvider.errorOnUnhandledRejections(false);
+});
