@@ -18,9 +18,9 @@
 			MAX(DATE_FORMAT(ADDTIME(t.dat_data, '00:".$t.":00.000000'), '%H:%i')) as roubo_ate
 			FROM sis_usuario u
 			LEFT JOIN sis_transacao t
-			ON u.id = t.vende_usuario_id
-			WHERE u.ide_serie < 5
+			ON (u.id = t.vende_usuario_id)
 			AND t.ide_troca = 0
+			WHERE u.ide_serie < 5
 			GROUP BY u.des_nick, format(u.num_saldo,0,'de_DE')
 			ORDER BY 1 DESC";
 	$stmt = $db->prepare($sql);
