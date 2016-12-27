@@ -34,7 +34,7 @@
           <div class="col-md-8">
             <ul class="list-unstyled roubo" ng-repeat="rb in roubo">
               <li class="bg-primary"> 
-                &nbsp; {{rb.horario}} - 
+                &nbsp; {{rb.horario}}
                 <img ng-src="http://www.pesmaster.com/pes-2017/graphics/players/player_{{rb.pes_id}}.png" alt="{{rb.jogador}}" class="img-circle cabeca">
                 <strong>{{rb.jogador}} ({{rb.posicao}}:{{rb.overall}}) </strong>
                 roubado do <strong>{{rb.roubado}} </strong>
@@ -46,8 +46,8 @@
 
           <!-- Lista de Users -->
           <div class="col-md-4">
-            <ul class="list-unstyled users">
-              <li>Coragi ($ 5.233) - pode roubar até 21:12</li>
+            <ul class="list-unstyled users" ng-repeat="u in listaUsuarios">
+              <li>{{u.nick}} ($ {{u.saldo}}) - pode roubar até {{u.horario_limite}}</li>
             </ul>
           </div>
         </div>
@@ -65,6 +65,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="lib/bootstrap.min.js"></script>
   	<script src="lib/angular.min.js"></script>
+    <script src="lib/angular-mocks.js"></script>
   	<script src="js/app.js"></script>
   	<script src="js/controller.js"></script>
    	<script src="js/services.js"></script>

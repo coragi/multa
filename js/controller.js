@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 angular
-	.module("multaApp")
-	.controller("MainController", MainController);
+	.module('multaApp')
+	.controller('MainController', MainController);
 
 function MainController($scope, multaService, $interval) {
 	//numero de roubos atuais
@@ -21,6 +21,9 @@ function MainController($scope, multaService, $interval) {
 							//adiciona os novos roubos no inicio do array $scope.roubo
 							$scope.roubo.unshift.apply($scope.roubo, roubos);
 						});
+					
+					//multaService.listaUsuarios()
+
 				}
 				//atualiza o numero de roubos atual
 				$scope.atual = num;

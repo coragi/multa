@@ -1,8 +1,9 @@
 module.exports = {
     "env": {
-        "browser": true
+        "jasmine": true
     },
-    "extends": ["eslint:recommended", "angular"],
+    "plugins": ["jasmine"],
+    "extends": ["eslint:recommended", "angular", "plugin:jasmine/recommended"],
     "rules": {
         "indent": [
             "error",
@@ -14,7 +15,7 @@ module.exports = {
         ],
         "quotes": [
             "error",
-            "double"
+            "single"
         ],
         "semi": [
             "error",
