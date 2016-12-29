@@ -1,15 +1,17 @@
-'use strict';
+"use strict";
 
 angular
-	.module('multaApp')
-	.controller('MainController', MainController);
+	.module("multaApp")
+	.controller("MainController", MainController);
 
 function MainController($scope, multaService, $interval) {
 	//numero de roubos atuais
 	$scope.atual = 0;
 	$scope.roubo = [];
+	$scope.listaUsuarios = [];
 
 	var recebeRb = function () {
+		$scope.data_hora = Date.now();
 		//numeroRoubo atualiza o numero de roubos atuais
 		multaService.numeroRoubo()
 			.then(function (num) {
@@ -22,7 +24,10 @@ function MainController($scope, multaService, $interval) {
 							$scope.roubo.unshift.apply($scope.roubo, roubos);
 						});
 					
-					//multaService.listaUsuarios()
+					multaService.listaUsuarios()
+						.then(function (usuarios) {
+							$scope.listaUsuarios = usuarios;
+						});
 
 				}
 				//atualiza o numero de roubos atual

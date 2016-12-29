@@ -20,7 +20,7 @@
           <div class="col-md-12 text-center">
 
             <h1>Por favor, não aperte F5 nessa página. Ela atualiza sozinha!</h1>
-            <h2>17/12/2016 12:55:19</h2>
+            <h2>{{ data_hora | date : "dd/MM/yyyy HH:mm:ss" }}</h2>
             <span>Transações até o momento: {{atual}}</span>
             <button type="button" class="btn btn-info">
               <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
@@ -47,7 +47,7 @@
           <!-- Lista de Users -->
           <div class="col-md-4">
             <ul class="list-unstyled users" ng-repeat="u in listaUsuarios">
-              <li>{{u.nick}} ($ {{u.saldo}}) - pode roubar até {{u.horario_limite}}</li>
+              <li>{{u.des_nick}} ($ {{u.saldo}}) pode roubar até {{u.roubo_ate}}</li>
             </ul>
           </div>
         </div>
