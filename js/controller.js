@@ -48,7 +48,7 @@ function MainController($scope, multaService, $interval) {
 							//adiciona os novos roubos no inicio do array $scope.roubo
 
 							$scope.roubo.unshift.apply($scope.roubo, roubos);
-
+							$scope.playAudio();
 						});
 
 
