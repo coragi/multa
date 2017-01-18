@@ -6,25 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Multa LBFV</title>
-
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/multa.css" rel="stylesheet">
+    <script>
+      //function sndInit(){
 
+	  //var snd = document.getElementById('goal');
+        //snd.play();
+        //snd.pause();
+      //}
+	  
+	  //function playSound() {
+		//document.getElementById('goal').play();
+	  //}
+    </script>
   </head>
   <body ng-controller="MainController">
-
     <div class="container-fluid">
         <!-- Header -->
         <div class="row">
           <div class="col-md-12 text-center">
-
             <h1>Por favor, não aperte F5 nessa página. Ela atualiza sozinha!</h1>
             <h2>{{ data_hora | date : "dd/MM/yyyy HH:mm:ss" }}</h2>
             <span>Transações até o momento: {{atual}}</span>
-            <button type="button" class="btn btn-info">
+            <button type="button" class="btn btn-info" ng-click="playAudio()">
               <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
-              Habilitar Áudio</button>
+              Toca a música</button>
           </div>
         </div>
         <br>
@@ -47,7 +55,7 @@
           <!-- Lista de Users -->
           <div class="col-md-4">
             <ul class="list-unstyled users" ng-repeat="u in listaUsuarios">
-              <li>{{u.des_nick}} ($ {{u.saldo}}) pode roubar até {{u.roubo_ate}}</li>
+              <li>{{u.des_nick}}: $ {{u.saldo}}</li>
             </ul>
           </div>
         </div>
@@ -63,11 +71,18 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="lib/jquery-1.12.4.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="lib/bootstrap.min.js"></script>
+   <script src="lib/bootstrap.min.js"></script>
   	<script src="lib/angular.min.js"></script>
     <script src="lib/angular-mocks.js"></script>
   	<script src="js/app.js"></script>
   	<script src="js/controller.js"></script>
    	<script src="js/services.js"></script>
+
+<!--
+   <audio id="goal" preload="auto">
+      <source src="goal.mp3" type='audio/mpeg; codecs="mp3"'>
+      <source src="goal.ogg" type='audio/ogg; codecs="vorbis"'>
+    </audio>
+-->
   </body>
 </html>

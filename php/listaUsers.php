@@ -22,7 +22,7 @@
 			AND t.ide_troca = 0
 			WHERE u.ide_serie < 5
 			GROUP BY u.des_nick, format(u.num_saldo,0,'de_DE')
-			ORDER BY 1 DESC";
+			ORDER BY u.num_saldo DESC";
 	$stmt = $db->prepare($sql);
 	$stmt->execute();	
 	$result = $stmt->fetchAll();	
