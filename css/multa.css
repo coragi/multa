@@ -1,20 +1,24 @@
-.roubo {
-    padding: 6px 12px;
-    white-space: nowrap;
-    font-size: 20px;
+body {
+	font-family: 'Roboto', sans-serif;
 }
 
-.roubo .cabeca {
-    height: 45px;
-    vertical-align: middle;
-    margin-right: 5px;
+.cabeca {
+/*max-width: 90%;  or to whatever you want here */
+max-height: 45px; /* or to whatever you want here */
+vertical-align: middle;
+display: inline-block;
 }
 
-.roubo li { border-bottom: 1px solid black; }
-
-.users {
-    padding: 6px 12px;
-    white-space: nowrap;
-    font-size: 16px;
+.p {
+    max-height: 50px;
 }
-
+.font-saldo{
+    font-size:18px !important;
+    font-weight:bold !important;
+}
+@media only screen and (max-width: 550px) {
+    h1.header-h1{
+        font-size:14px !important;
+        font-weight:bold !important;
+    }
+}

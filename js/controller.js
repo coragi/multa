@@ -10,15 +10,39 @@ angular
 
 
 
-function MainController($scope, multaService, $interval) {
+function MainController($scope, multaService, $interval, $location, $anchorScroll) {
 
 	//numero de roubos atuais
 
 	$scope.atual = 0;
 
 	$scope.roubo = [];
+	$scope.roubo.push({
+		"horario": "14:30", "pes_id":"46917", "jogador":"Douglas Santos", "posicao":"PTD", "overall":"80", "roubado":"Adeilson_DD", "ladrao":"Vitatu85", "proposta":"20.000"
+	});
+	$scope.roubo.push({
+		"horario": "14:30", "pes_id":"46917", "jogador":"Douglas Santos", "posicao":"PTD", "overall":"80", "roubado":"Adeilson_DD", "ladrao":"Vitatu85", "proposta":"20.000"
+	});
+	$scope.roubo.push({
+		"horario": "14:30", "pes_id":"46917", "jogador":"Douglas Santos", "posicao":"PTD", "overall":"80", "roubado":"Adeilson_DD", "ladrao":"Vitatu85", "proposta":"20.000"
+	});
+	$scope.roubo.push({
+		"horario": "14:30", "pes_id":"46917", "jogador":"Douglas Santos", "posicao":"PTD", "overall":"80", "roubado":"Adeilson_DD", "ladrao":"Vitatu85", "proposta":"20.000"
+	});
+	$scope.roubo.push({
+		"horario": "14:30", "pes_id":"46917", "jogador":"Douglas Santos", "posicao":"PTD", "overall":"80", "roubado":"Adeilson_DD", "ladrao":"Vitatu85", "proposta":"20.000"
+	});
 
 	$scope.listaUsuarios = [];
+	$scope.listaUsuarios.push({
+		"des_nick": "Coragi", "saldo":"120.000,00"
+	});
+	$scope.listaUsuarios.push({
+		"des_nick": "Tiagoscotch", "saldo":"55.000,00"
+	});
+	$scope.listaUsuarios.push({
+		"des_nick": "Eduardolyca", "saldo":"33.330,00"
+	});
 	var audio = new Audio('goal.mp3');
 
 	$scope.playAudio = function () {
@@ -28,7 +52,7 @@ function MainController($scope, multaService, $interval) {
 	var recebeRb = function () {
 
 		$scope.data_hora = Date.now();
-
+		
 		//numeroRoubo atualiza o numero de roubos atuais
 
 		multaService.numeroRoubo()
@@ -61,7 +85,9 @@ function MainController($scope, multaService, $interval) {
 
 						});
 
-
+					//move a pagina pro roubo
+					$location.hash("top-banner");
+     				$anchorScroll();
 
 				}
 
