@@ -16,12 +16,14 @@
         <!-- Header -->
         <div class="row" id="top-banner">
           <div class="col-md-12">
-            <img ng-src="banner.jpg" alt="banner" class="img-responsive center-block">
+            <img ng-src="images/banner.jpg" alt="banner" class="img-responsive center-block">
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12 text-center">
-            <h1 class="header-h1">Por favor, não aperte F5 nessa página. Ela atualiza sozinha!</h1>
+            <!-- <h1 class="header-h1">Por favor, não aperte F5 nessa página. Ela atualiza sozinha!</h1> -->
+            <img ng-src="images/aviso.png" alt="aviso" class="img-responsive center-block">
+            <div style="background-image:url('images/data.jpg');">TESTE</div>
             <h2>{{ data_hora | date : "dd/MM/yyyy HH:mm:ss" }}</h2>
             <span>Roubos até o momento: {{atual}}</span>
             <p><a href="#lista-saldos" class="btn btn-primary hidden-md hidden-lg">Ir para lista de saldos</a></p>

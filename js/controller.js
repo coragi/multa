@@ -17,7 +17,7 @@ function MainController($scope, multaService, $interval, $location, $anchorScrol
 	$scope.atual = 0;
 
 	$scope.roubo = [];
-	/*
+	
 	$scope.roubo.push({
 		"horario": "14:30", "pes_id":"46917", "jogador":"Douglas Santos", "posicao":"PTD", "overall":"80", "roubado":"Adeilson_DD", "ladrao":"Vitatu85", "proposta":"20.000"
 	});
@@ -32,10 +32,10 @@ function MainController($scope, multaService, $interval, $location, $anchorScrol
 	});
 	$scope.roubo.push({
 		"horario": "14:30", "pes_id":"46917", "jogador":"Douglas Santos", "posicao":"PTD", "overall":"80", "roubado":"Adeilson_DD", "ladrao":"Vitatu85", "proposta":"20.000"
-	});*/
+	});
 
 	$scope.listaUsuarios = [];
-	/*
+	
 	$scope.listaUsuarios.push({
 		"des_nick": "Coragi", "saldo":"120.000,00"
 	});
@@ -45,8 +45,8 @@ function MainController($scope, multaService, $interval, $location, $anchorScrol
 	$scope.listaUsuarios.push({
 		"des_nick": "Eduardolyca", "saldo":"33.330,00"
 	});
-	*/
-	var audio = new Audio('goal.mp3');
+	
+	var audio = new Audio('images/goal.mp3');
 
 	$scope.playAudio = function () {
 		audio.play();
