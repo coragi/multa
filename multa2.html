@@ -5,13 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <title>Multa LBFV</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/multa.css" rel="stylesheet">
+    <script type = "text/javascript">
+    /*
+        window.onload = function () {
+            document.onkeydown = function (e) {
+              return (e.which || e.keyCode) != 116;
+            };
+        }
+
+        window.onbeforeunload = function(){ 
+          return 'Reload?';
+        }
+        */
+    </script>
   </head>
-  <body ng-controller="MainController">
+  <body ng-controller="MainController" ng-keydown="showSpin($event)">
     <div class="container">
         <!-- Header -->
         <div class="row" id="top-banner">
@@ -19,12 +32,19 @@
             <img ng-src="images/banner.jpg" alt="banner" class="img-responsive center-block">
           </div>
         </div>
+        <div class="row" id="spin" ng-hide="bool_spin">
+          <div class="col-md-12">
+            <img ng-src="images/spin.gif" alt="spin" class="img-responsive center-block">
+          </div>
+        </div>
         <div class="row">
           <div class="col-xs-12 text-center">
-            <!-- <h1 class="header-h1">Por favor, não aperte F5 nessa página. Ela atualiza sozinha!</h1> -->
             <img ng-src="images/aviso.png" alt="aviso" class="img-responsive center-block">
-            <div style="background-image:url('images/data.jpg');">TESTE</div>
-            <h2>{{ data_hora | date : "dd/MM/yyyy HH:mm:ss" }}</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-5 col-xs-offset-3 text-center">
+            <div class="horario"><h2><i class="glyphicon glyphicon-time" aria-hidden="true"></i>&nbsp; {{ data_hora | date : "dd/MM/yyyy HH:mm:ss" }}</h2></div>
             <span>Roubos até o momento: {{atual}}</span>
             <p><a href="#lista-saldos" class="btn btn-primary hidden-md hidden-lg">Ir para lista de saldos</a></p>
           </div>
@@ -36,7 +56,7 @@
           <div class="col-md-9">
             <ul class="list-unstyled" ng-repeat="rb in roubo">
               <li class="bg-success">
-                <p> 
+                <p class="font-roubo"> 
                 &nbsp; {{rb.horario}}
                 <span class="hidden-sm hidden-md hidden-lg"> - </span>
                 <img ng-src="http://www.pesmaster.com/pes-2017/graphics/players/player_{{rb.pes_id}}.png" 
@@ -53,10 +73,14 @@
 
           <!-- Lista de Users -->
           <div class="col-md-3">
-            <h2 id="lista-saldos" class="text-center">Saldos <br/>
-            <a href="#top-banner" class="btn btn-primary hidden-md hidden-lg">Ir para roubos</a></h2>
+            <div id="lista-saldos" class="saldo text-center">
+              <h2><i class="glyphicon glyphicon-usd" aria-hidden="true"></i>&nbsp; Saldo de Caixa</h2>
+              <h3><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i>&nbsp; Limite de Roubo</h3>
+            </div>
+            <h2 class="text-center"><a href="#top-banner" class="btn btn-primary hidden-md hidden-lg">Ir para roubos</a></h2>
             <ul class="list-unstyled" ng-repeat="u in listaUsuarios">
-              <li class="bg-info font-saldo">{{u.des_nick}}: $ {{u.saldo}}</li>
+              <li class="bg-info font-saldo">{{u.des_nick}}: $ {{u.saldo}} | 
+                <i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i> {{u.roubo_max}}</li>
             </ul>
           </div>
         </div>

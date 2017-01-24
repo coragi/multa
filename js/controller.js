@@ -10,14 +10,14 @@ angular
 
 
 
-function MainController($scope, multaService, $interval, $location, $anchorScroll) {
+function MainController($scope, multaService, $interval, $location, $anchorScroll, $timeout) {
 
 	//numero de roubos atuais
 
 	$scope.atual = 0;
 
 	$scope.roubo = [];
-	
+	/*
 	$scope.roubo.push({
 		"horario": "14:30", "pes_id":"46917", "jogador":"Douglas Santos", "posicao":"PTD", "overall":"80", "roubado":"Adeilson_DD", "ladrao":"Vitatu85", "proposta":"20.000"
 	});
@@ -33,9 +33,9 @@ function MainController($scope, multaService, $interval, $location, $anchorScrol
 	$scope.roubo.push({
 		"horario": "14:30", "pes_id":"46917", "jogador":"Douglas Santos", "posicao":"PTD", "overall":"80", "roubado":"Adeilson_DD", "ladrao":"Vitatu85", "proposta":"20.000"
 	});
-
+*/
 	$scope.listaUsuarios = [];
-	
+	/*
 	$scope.listaUsuarios.push({
 		"des_nick": "Coragi", "saldo":"120.000,00"
 	});
@@ -45,12 +45,24 @@ function MainController($scope, multaService, $interval, $location, $anchorScrol
 	$scope.listaUsuarios.push({
 		"des_nick": "Eduardolyca", "saldo":"33.330,00"
 	});
-	
-	var audio = new Audio('images/goal.mp3');
+	*/
+	var audio = new Audio("images/goal.mp3");
 
 	$scope.playAudio = function () {
 		audio.play();
-	}
+	};
+
+	$scope.bool_spin = true;	
+
+	var hideSpin = function () {
+		$scope.bool_spin = true;
+	};
+	
+	$scope.showSpin = function (keyEvent) {
+		if (keyEvent.which === 116)
+			$scope.bool_spin = false;
+		$timeout(hideSpin, 2000);
+	};
 
 	var recebeRb = function () {
 
@@ -90,7 +102,7 @@ function MainController($scope, multaService, $interval, $location, $anchorScrol
 
 					//move a pagina pro roubo
 					$location.hash("top-banner");
-     				$anchorScroll();
+					$anchorScroll();
 
 				}
 
